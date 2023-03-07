@@ -1,25 +1,17 @@
 package com.codurance.lsp;
 
-public abstract class Vehicle {
+public interface Vehicle {
 
 
-    private boolean engineStarted = false;
 
-    public void startEngine() {
-        this.engineStarted = true;
-    }
 
-    public boolean engineIsStarted() {
-        return engineStarted;
-    }
+    public void startEngine();
 
-    public void stopEngine() {
-        this.engineStarted = false;
-    }
+    public boolean engineIsStarted();
 
-    public abstract void fillUpWithFuel();
+    public void stopEngine();
 
-    public abstract void chargeBattery();
+
 
 
 }

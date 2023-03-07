@@ -6,7 +6,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
 public class FillingStationShould {
-
     private static final int FULL = 100;
     private final FillingStation fillingStation = new FillingStation();
 
@@ -22,8 +21,8 @@ public class FillingStationShould {
 
 
     @Test
-    public void not_fail_refueling_an_electric_car(){
-        ElectricCar car = new ElectricCar();
+    public void not_fail_refueling_a_petrol_car(){
+        PetrolCar car = new PetrolCar();
 
         Throwable throwable = catchThrowable(() -> fillingStation.refuel(car));
 
@@ -39,17 +38,17 @@ public class FillingStationShould {
         fillingStation.charge(car);
 
         assertThat(car.batteryLevel())
-            .isEqualTo(FULL);
+                .isEqualTo(FULL);
     }
 
 
     @Test
-    public void not_fail_recharging_a_petrol_car() {
-        PetrolCar car = new PetrolCar();
+    public void not_fail_recharging_an_electric_car() {
+        ElectricCar car = new ElectricCar();
 
         Throwable throwable = catchThrowable(() -> fillingStation.charge(car));
 
         assertThat(throwable)
-            .isNull();
+                .isNull();
     }
 }

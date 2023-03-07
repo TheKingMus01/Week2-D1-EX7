@@ -18,12 +18,7 @@ class DogShould {
     }
 
 
-    @Test
-    void run() {
-        dog.run();
-        assertThat(consoleContent.toString())
-                .isEqualTo("Dog is running");
-    }
+    
 
     @Test
     void bark() {

@@ -12,7 +12,7 @@ public class VehicleShould {
     vehicle.startEngine();
 
     assertThat(vehicle.engineIsStarted())
-      .isTrue();
+            .isTrue();
 
   }
 
@@ -24,19 +24,25 @@ public class VehicleShould {
     vehicle.stopEngine();
 
     assertThat(vehicle.engineIsStarted())
-      .isFalse();
+            .isFalse();
   }
 
 
-  public class TestableVehicle extends Vehicle{
+  public class TestableVehicle implements Vehicle{
+
 
     @Override
-    public void fillUpWithFuel() {
+    public void startEngine() {
 
     }
 
     @Override
-    public void chargeBattery() {
+    public boolean engineIsStarted() {
+      return false;
+    }
+
+    @Override
+    public void stopEngine() {
 
     }
   }
